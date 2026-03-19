@@ -1,7 +1,7 @@
 ---
 
 title: "Tutorial 3 - Configurações de Build e Módulos do Kernel"
-date: 2026-03-19
+date: 2026-03-18
 categories: [Linux, Kernel, Virtualização]
 tags: [kernel, modules, linux, build, kworkflow]
 ---
