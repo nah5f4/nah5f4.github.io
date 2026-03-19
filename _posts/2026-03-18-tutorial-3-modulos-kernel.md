@@ -64,7 +64,6 @@ sudo guestunmount "${VM_DIR}/arm64_rootfs"
 Após a dificuldade anterior, liguei a VM e testei o carregamento do módulo. Usei o `insmod` passando o caminho completo do arquivo `.ko` gerado e o `dmesg` para ver a mágica acontecendo:
 
 ```bash id="v6o1fh"
-# Dentro da VM
 insmod /lib/modules/$(uname -r)/kernel/drivers/misc/simple_mod.ko
 dmesg | tail
 ```
