@@ -1,7 +1,7 @@
 ---
 
 title: "Tutorial 1 - Configurando o Ambiente de Desenvolvimento"
-date: 2026-03-18 10:00:00 -0300
+date: 2026-03-18 
 categories: [Linux, Kernel, Virtualização]
 tags: [qemu, libvirt, kernel, vm, linux]
 ---
