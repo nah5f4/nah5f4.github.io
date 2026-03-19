@@ -28,13 +28,13 @@ Com os arquivos criados, usei o `menuconfig` para ativar o módulo. Um detalhe i
 
 Essa foi a parte que mais me deu trabalho. Tentei usar o `guestmount` para instalar os módulos no rootfs da VM sem precisar ligá-la, mas enfrentei erros persistentes do `libguestfs`:
 
-```text id="m0gk8z"
+```text 
 appliance closed the connection unexpectedly
 ```
 
 Tive que investigar bastante, instalando pacotes extras e testando diferentes configurações de backend:
 
-```bash id="g4o3c6"
+```bash 
 sudo apt install libguestfs-tools qemu-utils supermin -y
 export LIBGUESTFS_BACKEND=direct
 # Forçando o uso de TCG caso o KVM desse problema
@@ -43,7 +43,7 @@ export LIBGUESTFS_BACKEND_SETTINGS=force_tcg
 
 Mesmo assim, o `guestmount` continuava falhando em alguns momentos porque a VM ainda estava "segurando" o arquivo da imagem. Precisei garantir que a VM estivesse desligada com:
 
-```bash id="k7y9q2"
+```bash 
 virsh destroy arm64
 ```
 
@@ -51,7 +51,7 @@ antes de tentar montar.
 
 No fim, a solução que funcionou para garantir a instalação foi:
 
-```bash id="m4q9jw"
+```bash 
 sudo -E guestmount --rw -a "${VM_DIR}/arm64_img.qcow2" -m /dev/sda2 "${VM_DIR}/arm64_rootfs"
 sudo --preserve-env make -C "${IIO_TREE}" INSTALL_MOD_PATH="${VM_DIR}/arm64_rootfs" modules_install
 sudo guestunmount "${VM_DIR}/arm64_rootfs"
@@ -63,7 +63,7 @@ sudo guestunmount "${VM_DIR}/arm64_rootfs"
 
 Após a dificuldade anterior, liguei a VM e testei o carregamento do módulo. Usei o `insmod` passando o caminho completo do arquivo `.ko` gerado e o `dmesg` para ver a mágica acontecendo:
 
-```bash id="v6o1fh"
+```bash 
 insmod /lib/modules/$(uname -r)/kernel/drivers/misc/simple_mod.ko
 dmesg | tail
 ```
