@@ -1,6 +1,6 @@
 ---
 
-title: "Introdução a Linux Character Device Drivers"
+title: "Tutorial 4 - Introdução a Linux Character Device Drivers"
 date: 2026-04-12 
 categories: [Linux, Kernel]
 tags: [linux, driver, c, flusp]
