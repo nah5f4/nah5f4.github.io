@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Contribuição para o ArKanjo: Desbravando a Arquitetura de uma CLI Otimizada"
+title: "Contribuição para o ArKanjo"
 date: 2026-07-07 22:30:00 -0300
 categories: [software-libre, contribuicoes]
 tags: [cpp, open-source, arkanjo, cli, jekyll]
